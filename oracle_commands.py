@@ -1,6 +1,8 @@
 import sublime
 import sublime_plugin
 import oracle_lib
+import subprocess
+import os
 
 
 class OracleGotoBodyCommand(sublime_plugin.TextCommand):
@@ -24,3 +26,15 @@ class OracleGotoBodyCommand(sublime_plugin.TextCommand):
             self.view.window().show_input_panel('Package body line number:', '', _on_change, _on_change, None)
         else:
             sublime.error_message('Error: Package body not found !')
+
+class OracleFormat(sublime_plugin.TextCommand):
+   def run(self, edit):
+        #def _on_change(result):
+
+            if os.name == "nt":
+                startupinfo = subprocess.STARTUPINFO()
+                startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+
+            self.view.run_command("save")
+            process = subprocess.Popen(([os.path.join(sublime.packages_path(), 'Oracle', 'format_sql.bat'), '"' + self.view.file_name() + '"'])) #stdin=subprocess.PIPE, stdout=subprocess.PIPE, startupinfo=startupinfo
+            print('Source Formated: ' + self.view.file_name())

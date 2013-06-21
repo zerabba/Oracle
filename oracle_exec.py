@@ -18,7 +18,7 @@ class OracleExecCommand(execmod.ExecCommand):
             # Create a string for the in of sql command
             sqlfilter = '"' + ",".join("'%s'" % entity for entity in self.entities.keys()) + '"'
 
-            cmd = ["sqlplus.exe", "-s", dsn, "@", os.path.join(sublime.packages_path(), 'OracleSQL', 'RunSQL.sql'),
+            cmd = ["sqlplus.exe", "-s", dsn, "@", os.path.join(sublime.packages_path(), 'Oracle', 'RunSQL.sql'),
                     self.window.active_view().file_name(), sqlfilter]
 
             super(OracleExecCommand, self).run(cmd, "^Filename: (.+)$", "^\\(.+?/([0-9]+):([0-9]+)\\) [0-9]+:[0-9]+ (.+)$", **kwargs)

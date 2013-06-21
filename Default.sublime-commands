@@ -2,5 +2,9 @@
     {
         "caption": "Oracle: Goto package body",
         "command": "oracle_goto_body"
+    },
+    {
+        "caption": "Oracle: Format code",
+        "command": "oracle_format"
     }
 ]

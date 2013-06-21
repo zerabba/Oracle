@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EventGhost Version="1610" Guid="{3779BC61-DD97-4A85-97CD-6D6CA6AA327A}" Time="1371819275.1">
+    <Autostart Name="Autostart" />
+    <Macro Name="fmtplus" Expanded="True">
+        <Event Name="fmtplus" />
+        <Action>
+            System.Execute(u'C:\\Program Files (x86)\\Quest Software\\FormatterPlus\\FmtPlus.exe', u' {eg.event.payload[0]}', 1, False, 2, u'C:\\Program Files (x86)\\Quest Software\\FormatterPlus\\', False)
+        </Action>
+        <Action>
+            EventGhost.Wait(0.80000000000000004)
+        </Action>
+        <Action>
+            Window.SendKeys(u'{F2}', False)
+        </Action>
+        <Action>
+            EventGhost.Wait(0.40000000000000002)
+        </Action>
+        <Action>
+            Window.SendKeys(u'{Ctrl+S}', False)
+        </Action>
+        <Action>
+            EventGhost.Wait(0.40000000000000002)
+        </Action>
+        <Action>
+            Window.SendKeys(u'{Alt+F4}', False)
+        </Action>
+    </Macro>
+</EventGhost>
